@@ -5,11 +5,15 @@
 #You should have received a copy of the GNU General Public License along with Gautier RSS System by Michael Gautier.  If not, see <http://www.gnu.org/licenses/>.
 #C++ Standard Library; Copyright 2018 Standard C++ Foundation.
 
+cp ../styles.css .
+glib-compile-resources --target=../styles.cxx --generate-source ../styles.xml
+g++ -std=c++17 -O3 -c -fPIC ../styles.cxx -o obj/gautier_rss_styles.o `pkg-config gtkmm-3.0 --cflags --libs`
+
 rm obj/librssui_mainscreengenerator.o
 
 echo "build main screen generator"
 
-g++ -std=c++17 -O3 -c -fPIC -I../lib/news/ -I../lib/news/techconstruct/ `xml2-config --cflags` -I../librss_ui_impl/ `../../../build_shared/wx/bin/wx-config --cxxflags` -o obj/librssui_mainscreengenerator.o ../librss_ui_impl/mainscreengenerator.cxx
+g++ -std=c++17 -O3 -c -fPIC -I../lib/news/ -I../lib/news/techconstruct/ -I../librss_ui_impl/ `pkg-config gtkmm-3.0 --cflags --libs` -o obj/librssui_mainscreengenerator.o ../librss_ui_impl/mainscreengenerator.cxx
 
 ls -gGh obj/librssui_mainscreengenerator*
 
