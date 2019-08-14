@@ -1,0 +1,65 @@
+/*
+Copyright 2019 Michael Gautier
+
+This file is part of Gautier RSS System by Michael Gautier.
+
+Gautier RSS System by Michael Gautier is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Gautier RSS System by Michael Gautier is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with Gautier RSS System by Michael Gautier.  If not, see <http://www.gnu.org/licenses/>.
+
+C++ Standard Library; Copyright 2018 Standard C++ Foundation.
+*/
+#include "rss_cycle_feed_article.hxx"
+
+using cls = news::rss_cycle_feed_article;
+
+void cls::init(std::string file_location) {
+    _file_location = file_location;
+
+    return;
+}
+
+news::rss_data_feed_article_spec cls::get_single_feed_article(const news::rss_data_feed_name_spec& feed_name, const unsigned short int headline_index) {
+    news::rss_data_feed_article_spec a;
+
+    //Find the spec in the set and assign to n.
+
+    return a;
+}
+
+news::rss_set_consequence cls::set_single_feed_article(const news::rss_data_feed_article_spec& feed_article) {
+    news::rss_file_manager_feed_article fm;
+    fm.init(_file_location);
+
+    //Add the spec to the set.
+
+    news::rss_set_consequence cs;
+
+    news::rss_data_consequence_spec consq;
+    consq.set_catalog_number(1);
+    consq.set_statement("completed");
+
+    cs.add(consq);
+
+    return cs;
+}
+
+news::rss_set_consequence cls::remove_multiple_feed_articles(const news::rss_data_feed_name_spec& feed_name, const unsigned short int headline_index_first, const unsigned short int headline_index_last) {
+    news::rss_file_manager_feed_article fm;
+    fm.init(_file_location);
+
+    //Remove the specs from the set.
+
+    news::rss_set_consequence cs;
+
+    news::rss_data_consequence_spec consq;
+    consq.set_catalog_number(1);
+    consq.set_statement("completed");
+
+    cs.add(consq);
+
+    return cs;
+}
+
